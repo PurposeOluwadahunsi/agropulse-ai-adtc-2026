@@ -14,3 +14,39 @@ __pycache__/
 # Local profiler output
 submission.json
 audit.json
+
+# Database
+agropulse.db
+agropulse.db-wal
+agropulse.db-shm
+
+# Models and vector store 
+models/
+vectorstore/
+
+# Logs
+logs/
+*.log
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+env/
+
+# Streamlit
+.streamlit/secrets.toml
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Uploads / temp
+/tmp/
+*.tmp
