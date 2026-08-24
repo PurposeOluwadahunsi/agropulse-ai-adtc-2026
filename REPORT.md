@@ -1,49 +1,102 @@
-# Technical Report — [Your Submission Title]
+# Technical Report - AgroPulse AI
 
-**Team ID:** your-team-id  
-**Domain:** coding_assistants  
-**Model:** YourModel-Q4_K_M
+**Team ID:** ATF26-782200-NGA  
+**Domain:** agriculture  
+**Model:** SmolLM2-135M-Instruct-Q4_K_M
 
 ---
 
 ## Problem
 
-<!-- What problem are you solving? Who is the target user? Why does this matter in an African context? -->
+AgroPulse AI is an offline AI-powered poultry disease decision-support and Smart Farm Operations platform built for African farmers.
 
-Describe the problem your model addresses, the target user group, and why running this model locally (offline, on consumer hardware) is important for this use case.
+Small-scale and rural poultry farmers across Nigeria and sub-Saharan Africa often have limited and delayed access to veterinary expertise. Poultry diseases can spread quickly and cause significant losses, while unreliable internet connectivity makes cloud-based AI services difficult to depend on in many farming environments.
+
+AgroPulse AI is designed to provide useful decision support without requiring an internet connection during normal operation. It helps farmers identify possible disease patterns from reported symptoms, retrieve relevant veterinary knowledge, monitor farm records, and make better day-to-day operational decisions.
+
+The system is designed for poultry farmers, agricultural extension officers, and veterinary field workers. It is a decision-support system and does not replace laboratory testing or professional veterinary examination.
 
 ---
 
 ## Design Decisions
 
-<!-- What model did you start from? Why that base model and quantization? What alternatives did you consider and reject? -->
+### Offline-first architecture
 
-- **Base model:** e.g. Llama 3.2 1B, Mistral 7B, Phi-3 mini, etc.
-- **Quantization:** e.g. Q4_K_M chosen for balance of quality and memory footprint
-- **Alternatives considered:** e.g. Q8_0 exceeded 8 GB limit; Q2_K degraded output quality too aggressively
+The main design decision was to make the system functional without continuous internet access. The application uses local models, local knowledge storage, and a local database instead of relying on cloud APIs.
+
+The pipeline is:
+
+```text
+Farmer input (text or voice)
+        ↓
+Rule-based symptom triage
+        ↓
+Local veterinary knowledge retrieval
+        ↓
+Local language model
+        ↓
+Structured advisory and recommendations
+        ↓
+Farm records and analytics
+
+
+### Model and quantization
+
+For the ADTC benchmark submission, the packaged model is **SmolLM2-135M-Instruct-Q4_K_M**, running through llama.cpp.
+
+The Q4_K_M quantization was chosen because AgroPulse AI is designed for practical use on consumer laptops with limited memory and without requiring a dedicated GPU.
+
+### Smart Farm Operations
+
+AgroPulse AI also includes farm management features for livestock, mortality, feed, medication, vaccination, and egg production. It provides farm performance scoring, feed planning, mortality trend analysis, egg production intelligence, vaccination tracking, and farm risk and biosecurity insights.
 
 ---
 
 ## Constraints
 
-<!-- What hardware, connectivity, power, or data constraints shaped your choices? -->
+AgroPulse AI is designed to run on an 8 GB+ RAM consumer laptop without requiring a dedicated GPU.
 
-- Target: 8 GB RAM, integrated GPU, Ubuntu 22.04
-- No GPU acceleration — pure CPU inference via llama.cpp
-- Any specific connectivity or data availability constraints relevant to your domain
+The system is offline-first. After the required models and knowledge resources are downloaded, normal operation does not require cloud APIs or continuous internet access. Farm records are stored locally using SQLite, while veterinary knowledge and embeddings are stored locally.
+
+CPU-only inference is a major constraint, which influenced the choice of a small quantized model for the ADTC submission.
+
+The veterinary knowledge base currently covers 12 poultry diseases. Voice recognition is strongest in English, while Hausa, Yoruba, and Igbo performance can vary.
+
+AgroPulse AI is a decision-support system and does not provide confirmed veterinary diagnoses. Serious or uncertain cases should be referred to a qualified veterinarian.
 
 ---
 
 ## Benchmarks
 
-<!-- What inference speed and memory numbers did you observe on your development machine? -->
+The initial ADTC profiler benchmark on the development laptop produced the following measurements:
 
 | Metric | Value |
 |---|---|
-| Machine | e.g. MacBook Air M2 / ThinkPad X1 i5 |
-| RAM at peak | e.g. 3.8 GB |
-| Time to first token | e.g. 420 ms |
-| Generation speed | e.g. 18.4 t/s |
-| Thermal throttling | e.g. None observed |
+| Machine | Windows 11 laptop, Intel CPU, no dedicated GPU |
+| RAM | 11.8 GB |
+| Peak memory | 373.48 MB |
+| Steady-state memory | 343.49 MB |
+| Time to first token | 1868.22 ms |
+| Generation speed | 118.87 tokens/second |
+| CPU p99 | 40% |
+| Thermal throttling | None observed |
 
-These are self-reported development benchmarks. Official scores are measured by the ADTC profiler on the standard evaluation machine.
+These are preliminary profiler measurements. The final submission benchmark will be generated by the ADTC profiler during the final run.
+
+---
+
+## Responsible AI
+
+AgroPulse AI is designed as a decision-support tool rather than a replacement for veterinary professionals.
+
+The system uses cautious language such as "possible", "likely", and "consistent with" rather than claiming confirmed diagnoses. Critical cases and cases requiring professional examination are directed toward veterinary follow-up.
+
+The goal is to make useful agricultural and veterinary knowledge more accessible to farmers while keeping the limitations of AI visible to the user.
+
+---
+
+## Conclusion
+
+AgroPulse AI combines offline AI inference, veterinary knowledge retrieval, rule-based symptom triage, and farm data intelligence into a single platform for poultry farmers.
+
+Its offline-first design is intended to make AI-based agricultural decision support practical in environments where internet access, computing resources, and access to veterinary expertise may be limited.

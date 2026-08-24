@@ -1,27 +1,27 @@
 {
-  "team_id": "your-team-id",
-  "domain": "coding_assistants",
+  "team_id": "ATF26-782200-NGA",
+  "domain": "agriculture",
   "language_scope": ["en"],
   "african_alpha_claim": false,
   "budget_laptop_claim": true,
   "submitter": {
-    "name": "your-name",
-    "email": "your-email@domain.com",
-    "github_handle": "your-github"
+    "name": "Purpose Oluwadahunsi",
+    "email": "oluwadahunsipurpose670@gmail.com",
+    "github_handle": "PurposeOluwadahunsi"
   },
   "cross_disciplinary_pairing": {
-    "discipline": "education",
+    "discipline": "agriculture",
     "load_bearing": true,
-    "description": "Brief description of how your model serves a real-world domain."
+    "description": "AgroPulse AI combines offline AI, veterinary knowledge retrieval, and farm data intelligence to support poultry disease decisions and daily farm operations for African farmers."
   },
   "test_prompts": [
     {
       "prompt_id": "tp_001",
-      "prompt": "Write a Python function that reads a CSV file and returns the column with the highest mean value."
+      "prompt": "A poultry farmer reports that several chickens have sudden deaths, greenish diarrhea, coughing, and a sharp drop in feed intake. What possible disease patterns should the farmer consider, what immediate biosecurity steps should be taken, and when should a veterinarian be contacted?"
     },
     {
       "prompt_id": "tp_002",
-      "prompt": "Explain the difference between a list and a tuple in Python, and give one example where each is the better choice."
+      "prompt": "A poultry farmer has 500 birds, rising mortality over the past two weeks, decreasing egg production, and limited feed remaining. Explain how the farmer can assess the farm's current risk and prioritize actions for feed management, mortality monitoring, vaccination records, and veterinary follow-up."
     }
   ],
   "model": {
