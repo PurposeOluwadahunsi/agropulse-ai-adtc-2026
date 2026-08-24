@@ -38,7 +38,7 @@ Local language model
 Structured advisory and recommendations
         ↓
 Farm records and analytics
-
+```
 
 ### Model and quantization
 
