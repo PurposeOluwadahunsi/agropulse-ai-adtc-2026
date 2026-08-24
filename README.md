@@ -1,190 +1,309 @@
-# ADTC 2026 — Submission Template
+# AgroPulse AI
 
-This is the official template repository for the **Africa Deep Tech Challenge 2026** Laptop LLM track.
+**Offline AI-powered poultry disease decision support and Smart Farm Operations platform for African farmers.**
 
-Fork this repository, fill in the required files, and submit your repository URL via [adtc-2026.devpost.com](https://adtc-2026.devpost.com).
+Built for the **Africa Deep Tech Challenge 2026 — Laptop LLM track**.
 
----
+## What It Is
 
-## ✅ Submission Checklist
+AgroPulse AI is an offline-first platform designed to help poultry farmers, agricultural extension officers, and veterinary field workers make better day-to-day decisions. It combines poultry disease decision support with practical farm management tools so that important information can still be accessed when internet connectivity is limited or unavailable.
 
-Before submitting, confirm every item:
+The system runs its AI components locally on the user's laptop. Farm records are stored locally, veterinary knowledge is retrieved locally, and the application does not depend on cloud APIs during normal operation.
 
-- [ ] Your repository is **public** on GitHub
-- [ ] `metadata.json` is fully filled in — no placeholder values remain
-- [ ] `metadata.json` contains exactly **2 test prompts** in the `test_prompts` array, written for your chosen domain
-- [ ] `download_model.sh` successfully downloads your model to `model/`
-- [ ] The downloaded file is a valid **GGUF format** (`.gguf`) weight file
-- [ ] `model/*.gguf` is listed in `.gitignore` — do **not** commit large weight files
-- [ ] `REPORT.md` is filled in with your technical writeup
-- [ ] Running `bash download_model.sh` completes without errors
-- [ ] Your model runs entirely **offline** — zero external network calls during inference
+## The Problem
 
----
+Many poultry farmers in Nigeria and across sub-Saharan Africa have limited access to timely veterinary support. When disease symptoms appear, delays in identifying possible problems or taking appropriate action can lead to serious flock losses.
 
-## 📁 Required File Structure
+At the same time, many farming areas have unreliable internet connectivity. This makes cloud-dependent AI applications difficult to use consistently. AgroPulse AI was built around this constraint: the core system should remain useful even without an internet connection.
 
+## The Solution
+
+AgroPulse AI provides a local disease decision-support pipeline together with farm management and operational intelligence.
+
+The platform can:
+
+- Perform rule-based symptom triage against a curated poultry veterinary knowledge base
+- Retrieve relevant veterinary information using a local RAG pipeline
+- Generate structured advisory responses using a local Phi-3 Mini model
+- Track livestock, mortality, feed, medication, vaccination, and egg production
+- Calculate farm performance and risk indicators
+- Provide smart recommendations for daily farm operations
+- Detect potential mortality and disease trends
+- Provide offline voice input and text-to-speech
+- Generate PDF veterinary reports
+- Provide demo cases and one-click sample farm data for quick evaluation
+
+## Key Features
+
+### Offline AI Disease Decision Support
+
+- Weighted symptom matching
+- Coverage of 12 poultry diseases
+- Veterinary knowledge retrieval using ChromaDB
+- Local LLM advisory responses
+- Safety-oriented language that avoids claiming a confirmed diagnosis
+
+### Farm Intelligence
+
+- Farm Risk Score
+- Biosecurity intelligence
+- Outbreak detection
+- Mortality trend analysis
+- Disease consultation history
+- Farm health timeline
+
+### Smart Farm Operations
+
+- Farm Performance Score
+- Smart recommendations
+- Feed planning
+- Mortality intelligence
+- Egg production intelligence
+- Vaccination calendar
+- Daily farm summaries
+- "What Changed" tracking between visits
+
+### Farm Management
+
+- Livestock records
+- Mortality records
+- Feed inventory
+- Medication records
+- Vaccination records
+- Egg production records
+
+### Additional Tools
+
+- Offline voice input using Whisper
+- Offline text-to-speech
+- Interactive Plotly analytics
+- PDF report export
+- Demo Mode
+- One-click sample farm data
+
+## Architecture
+
+```text
+Farmer input (text or voice)
+            |
+            v
+     Triage Engine
+     (rule-based)
+            |
+            v
+   RAG Knowledge Retrieval
+   (ChromaDB + embeddings)
+            |
+            v
+      Local LLM
+     (Phi-3 Mini)
+            |
+            v
+ Structured advisory response
+ + risk intelligence
+ + recommendations
+            |
+            v
+      Local SQLite
+   farm and consultation data
 ```
-your-submission/
-├── metadata.json          ← Required. Team, model, and test prompt metadata.
-├── download_model.sh      ← Required. Downloads your .gguf model weight file.
-├── REPORT.md              ← Required. Technical writeup (problem, design, benchmarks).
-├── model/
-│   └── your-model.gguf   ← Downloaded by the script above. Do NOT commit.
-└── .gitignore             ← Must exclude *.gguf and model/ from version control.
-```
 
----
+## Technology Stack
 
-## 📝 metadata.json
+| Layer | Technology |
+|---|---|
+| UI | Streamlit |
+| LLM | Phi-3 Mini via Ollama |
+| Model format | GGUF |
+| Runtime requirement | llama.cpp |
+| Embeddings | sentence-transformers |
+| Vector store | ChromaDB |
+| Database | SQLite |
+| Voice input | OpenAI Whisper |
+| Voice output | pyttsx3 |
+| Analytics | Plotly |
+| Reports | ReportLab |
 
-Fill in every field. No field should remain at its placeholder value.
+### Model and ADTC Runtime Compliance
 
-```json
-{
-  "team_id": "your-team-id",
-  "domain": "coding_assistants",
-  "language_scope": ["en"],
-  "african_alpha_claim": false,
-  "budget_laptop_claim": true,
-  "submitter": {
-    "name": "your-name",
-    "email": "your-email@domain.com",
-    "github_handle": "your-github"
-  },
-  "cross_disciplinary_pairing": {
-    "discipline": "education",
-    "load_bearing": true,
-    "description": "Brief description of how your model serves a real-world domain."
-  },
-  "test_prompts": [
-    {
-      "prompt_id": "tp_001",
-      "prompt": "Your first test prompt, written for your chosen domain."
-    },
-    {
-      "prompt_id": "tp_002",
-      "prompt": "Your second test prompt, written for your chosen domain."
-    }
-  ],
-  "model": {
-    "name": "YourModel-Q4_K_M",
-    "runtime": "llama.cpp",
-    "quantization": "GGUF Q4_K_M",
-    "parameters_estimate": "1.1B",
-    "packaging": "binary_bundle"
-  },
-  "_runtime": {
-    "model_path": "model/your-model.gguf"
-  }
-}
-```
+The submission uses a **GGUF-format Phi-3 Mini model**. The ADTC submission metadata specifies `llama.cpp` as the required model runtime and `GGUF` as the model format.
 
-### Field Reference
+The application uses Ollama locally to manage and serve the model during development and demonstration. The repository does not commit the model weights; the submission's `download_model.sh` is responsible for obtaining the model into the `model/` directory.
 
-| Field | Required | Description |
-|---|---|---|
-| `team_id` | ✅ | Your unique team ID as registered on the ADTF portal |
-| `domain` | ✅ | Your challenge track. One of: `math_scientific_reasoning`, `healthcare_medical`, `agriculture`, `creative_writing`, `coding_assistants`, `corporate_enterprise`, `autonomous_ai_agents` |
-| `language_scope` | ✅ | Array of BCP-47 language codes. Must include at least one. |
-| `african_alpha_claim` | ✅ | `true` only if claiming the African Use Case Bonus |
-| `budget_laptop_claim` | ✅ | Must be `true` — all submissions target the 8 GB RAM laptop profile |
-| `submitter.name` | ✅ | Full name of the team member submitting the run |
-| `submitter.email` | ✅ | Valid email address linked to the registered team |
-| `submitter.github_handle` | ✅ | Verifiable GitHub username |
-| `cross_disciplinary_pairing.discipline` | ✅ | The deep-tech discipline your model serves |
-| `cross_disciplinary_pairing.load_bearing` | ✅ | `true` if the pairing is integral to the submission, not cosmetic |
-| `test_prompts` | ✅ | **Exactly 2 prompts** in your chosen domain. Organizers will add 2 hidden prompts to test for overfitting. |
-| `model.runtime` | ✅ | Must be `llama.cpp`. No other runtime is accepted. |
-| `model.quantization` | ✅ | Must be a GGUF quantization format (e.g. `GGUF Q4_K_M`, `GGUF Q5_K_M`) |
-| `model.parameters_estimate` | ✅ | Approximate parameter count (e.g. `135M`, `1.1B`, `7B`) |
-| `model.packaging` | ✅ | How the model is packaged. One of: `docker_image`, `docker_build_from_repo`, `binary_bundle` |
-| `_runtime.model_path` | ✅ | Relative path from repo root to your `.gguf` file (e.g. `model/my-model.gguf`) |
+The local model was verified to expose a GGUF weight file through the installed Ollama model configuration.
 
----
+## Offline-First Design
 
-## 📥 download_model.sh
+AgroPulse AI is designed to operate without internet access after the required models and dependencies have been installed.
 
-This script **must** download your model weight file to the `model/` directory.
+- The LLM runs locally
+- Embeddings are cached and used locally
+- ChromaDB is local
+- SQLite stores farm data locally
+- Whisper runs locally after its model has been downloaded
+- Text-to-speech runs locally
+- No cloud AI API is required during normal application use
 
-Rules:
-- Must be idempotent — safe to run multiple times without re-downloading.
-- Must work without any credentials — your weights must be publicly accessible.
-- The downloaded file path must exactly match `_runtime.model_path` in `metadata.json`.
+For evaluation, all external downloads should be completed before the offline inference test begins.
 
-Recommended hosting options for your weights:
-- [Hugging Face](https://huggingface.co) — public model repos (free, best for GGUF files)
-- GitHub Release Assets — attach the `.gguf` file to a GitHub Release
-- Any stable public URL (GCS public bucket, S3 public object, etc.)
+## Installation
 
----
+### Prerequisites
 
-## 📄 REPORT.md
+- Python 3.10 or later
+- Ollama installed for the development/demo setup
+- Sufficient RAM for the local model and application
 
-Your technical writeup. Judges and the LLM-based audit system will read this to understand your submission. Cover:
+### Setup
 
-1. **Problem** — What problem are you solving? Who is the target user in an African context?
-2. **Design Decisions** — What model did you start from? Why that quantization level? What alternatives did you evaluate?
-3. **Constraints** — What hardware, connectivity, or data constraints shaped your approach?
-4. **Benchmarks** — What inference speed and memory numbers did you observe on your development machine?
-
-Keep it factual and specific. One to three pages is ideal.
-
----
-
-## 🧪 Local Testing
-
-The ADTC profiler is open source. Install it directly from the official repository:
+Clone the repository:
 
 ```bash
-pip install "git+https://github.com/Africa-Deep-Tech-Foundation/adtc-profiler.git"
+git clone https://github.com/PurposeOluwadahunsi/agropulse-ai-adtc-2026.git
+cd agropulse-ai-adtc-2026
 ```
 
-Then run a local smoke test before submitting:
+Create and activate a virtual environment:
 
 ```bash
-# 1. Download your weights
+python -m venv venv
+```
+
+On Windows:
+
+```powershell
+venv\Scripts\activate
+```
+
+On macOS/Linux:
+
+```bash
+source venv/bin/activate
+```
+
+Install dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+Download the model using the submission script:
+
+```bash
 bash download_model.sh
-
-# 2. Run the profiler in participant mode
-adtc-profiler run \
-  --submission . \
-  --mode participant \
-  --output submission.json \
-  --skip-accuracy
-
-# 3. Review your report
-cat submission.json
 ```
 
-A valid run produces a `submission.json` with `"measured_on": "participant_laptop"`.
+For the local Ollama development/demo setup:
 
-The profiler source code, including the thermal monitoring logic and scoring formulas, is publicly readable at:
-[github.com/Africa-Deep-Tech-Foundation/adtc-profiler](https://github.com/Africa-Deep-Tech-Foundation/adtc-profiler)
+```bash
+ollama pull phi3:mini
+```
 
----
+### Build the Knowledge Base
 
-## ⚠️ Rules
+```bash
+python knowledge/ingest.py
+```
 
-1. **Public repository required.** Your repository must be public at the time of evaluation.
-2. **No model weights in git.** Add `*.gguf` and `model/` to your `.gitignore`. The evaluator downloads weights fresh via `download_model.sh`.
-3. **100% offline during evaluation.** Your model must run with zero external network dependencies during our testing window. `download_model.sh` runs before the profiler starts, but once profiling begins, no outbound requests are permitted.
-4. **llama.cpp only.** All models must use GGUF weights and run through `llama.cpp`. No other runtime is supported by our evaluation framework.
-5. **8 GB RAM limit.** Your model must run within the standard laptop profile (4 vCPU, 8 GB RAM, integrated GPU only). Out-of-memory errors during evaluation result in automatic disqualification.
-6. **No size restriction.** There is no parameter count or file size cap — but the 8 GB RAM constraint is strict. Plan your quantization level accordingly.
-7. **Two test prompts required.** Your `metadata.json` must include exactly 2 prompts in the `test_prompts` array. Organizers will generate 2 additional hidden prompts within your domain. All 4 are used for scoring.
+## Running the Application
 
----
+```bash
+python -m streamlit run app.py
+```
 
-## 🆘 Support
+Then open:
 
-Open an issue in this repository or contact the ADTF team at challenge@africadeeptech.org.
+```text
+http://localhost:8501
+```
 
-View the full eligibility rules at [adtc-2026.devpost.com/rules](https://adtc-2026.devpost.com/rules).
+## Demo Mode
 
----
+AgroPulse AI includes a Demo Mode containing pre-written poultry disease scenarios. These allow a user or evaluator to explore the disease-support pipeline without manually entering a case.
 
-## 📄 License
+Example scenarios include:
 
-This template is licensed under the terms of the [GNU GPL v3 License](LICENSE).
+- Newcastle Disease
+- Gumboro Disease
+- Coccidiosis
+- Fowl Cholera
+- Chronic Respiratory Disease
+- Egg Drop Syndrome
 
+## Sample Farm Data
+
+When the database is empty, the application provides a **Load Sample Farm Data** option.
+
+This loads realistic sample records for:
+
+- Livestock
+- Mortality
+- Feed
+- Vaccination
+- Egg production
+
+This allows the farm-management and Smart Operations features to be demonstrated quickly.
+
+## Running Fully Offline
+
+After all required models and dependencies have been downloaded and prepared:
+
+1. Disconnect the laptop from the internet.
+2. Make sure the local model runtime is available.
+3. Launch the application:
+
+```bash
+python -m streamlit run app.py
+```
+
+4. Test disease decision support, farm management, analytics, voice features, and report generation without an internet connection.
+
+## Responsible AI
+
+AgroPulse AI is a **decision-support tool**, not a replacement for a veterinarian or laboratory diagnosis.
+
+The system uses language such as "possible", "likely", and "consistent with" rather than presenting its output as a confirmed diagnosis. Veterinary professionals should be consulted before treatment decisions are made, especially for serious or potentially contagious diseases.
+
+## Known Limitations
+
+- Response time can be significant on CPU-only laptops with limited RAM.
+- The current veterinary knowledge base covers 12 poultry diseases.
+- Vague symptom descriptions may produce no strong match rather than forcing a prediction.
+- Voice recognition accuracy can vary by language and recording quality.
+- The system does not replace laboratory testing or an in-person veterinary examination.
+- The "What Changed" comparison is session-based and resets when the application session is restarted.
+- The AI insight panel is data-driven and templated rather than a separate generative model.
+
+## Project Structure
+
+```text
+agropulse-ai-adtc-2026/
+├── app.py
+├── main.py
+├── core/
+├── db/
+├── farm/
+├── knowledge/
+├── model/
+├── ui/
+├── voice/
+├── metadata.json
+├── download_model.sh
+├── REPORT.md
+├── requirements.txt
+├── README.md
+├── .gitignore
+└── LICENSE
+```
+
+Model weights are intentionally excluded from Git. The evaluator should obtain the model through `download_model.sh`.
+
+## Africa Deep Tech Challenge 2026
+
+AgroPulse AI was developed for the **Africa Deep Tech Challenge 2026 Laptop LLM track**, with a focus on agriculture and the practical constraints faced by farmers who may have limited connectivity and computing resources.
+
+The project combines local AI, retrieval-augmented generation, veterinary knowledge, and farm-management intelligence into one offline-first platform.
+
+## License
+
+This project is released under the **GNU General Public License v3.0**.
