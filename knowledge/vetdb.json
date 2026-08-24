@@ -1,0 +1,617 @@
+{
+  "version": "2.0.0",
+  "last_updated": "2026-07-13",
+  "diseases": [
+    {
+      "id": "ND001",
+      "name": "Newcastle Disease",
+      "aliases": ["ND", "pseudo-fowl pest", "arun adiye", "newcastle"],
+      "affected_birds": ["broilers", "layers", "local breeds", "turkeys", "ducks"],
+      "severity": "critical",
+      "vet_referral": true,
+      "symptoms": [
+        "gasping", "coughing", "sneezing", "twisted neck", "torticollis",
+        "paralysis", "green diarrhoea", "greenish droppings", "sudden death",
+        "drop in egg production", "soft-shelled eggs", "nervous signs",
+        "wing drooping", "circling", "swollen head", "nasal discharge",
+        "rattling sound", "loss of appetite", "depression", "prostration"
+      ],
+      "distinguishing_symptoms": [
+        "twisted neck", "torticollis", "circling", "wing drooping", "green diarrhoea"
+      ],
+      "symptom_weights": {
+        "twisted neck": 4, "torticollis": 4, "circling": 3,
+        "green diarrhoea": 3, "greenish droppings": 3, "gasping": 2,
+        "sudden death": 2, "paralysis": 2, "wing drooping": 2,
+        "drop in egg production": 1, "nervous signs": 2,
+        "nasal discharge": 1, "rattling sound": 1
+      },
+      "confidence_keywords": [
+        "twisted", "torticollis", "circling", "nervous", "paralysis",
+        "green stool", "green dropping", "sudden death flock"
+      ],
+      "first_aid": "Immediately isolate all sick birds. No curative treatment exists. Cull severely affected birds humanely. Disinfect the entire poultry house. Do NOT move birds in or out of the farm.",
+      "treatment": "No antiviral treatment. Supportive care only: clean water with electrolytes and vitamins. Antibiotics only to prevent secondary bacterial infections, under veterinary guidance.",
+      "biosecurity_actions": [
+        "Isolate affected birds immediately",
+        "Restrict farm access to essential personnel only",
+        "Disinfect footwear and equipment at entry points",
+        "Do not share equipment with neighbouring farms",
+        "Dispose of dead birds by deep burial or incineration",
+        "Do not sell birds or eggs from affected flock"
+      ],
+      "prevention": "Vaccinate with La Sota (eye drop or drinking water) at day 1 and day 14. Booster every 3 months. Quarantine new birds for 2 weeks before introduction.",
+      "vaccination_notes": "La Sota live vaccine at day 1 and day 14 via eye drop. Inactivated oil-emulsion booster at 6-8 weeks for layers. Repeat every 3 months. Cold chain must be maintained.",
+      "when_to_call_vet": "Immediately. Newcastle is a notifiable disease in Nigeria. Any suspected outbreak must be reported to the nearest veterinary office.",
+      "mortality_rate": "50-100% in unvaccinated flocks",
+      "incubation_days": "2-15",
+      "contagious": true,
+      "zoonotic": false,
+      "references": [
+        "FAO Animal Health Manual No.4",
+        "OIE Terrestrial Manual Chapter 3.3.14",
+        "NVRI Nigeria Newcastle Disease Guidelines"
+      ]
+    },
+    {
+      "id": "IBD001",
+      "name": "Gumboro Disease",
+      "aliases": ["IBD", "infectious bursal disease", "bursal disease", "gumboro"],
+      "affected_birds": ["broilers aged 3-6 weeks", "layers"],
+      "severity": "critical",
+      "vet_referral": true,
+      "symptoms": [
+        "sudden onset diarrhoea", "watery diarrhoea", "whitish diarrhoea",
+        "ruffled feathers", "depression", "reluctance to move", "huddling",
+        "incoordination", "loss of appetite", "dehydration",
+        "picking at their own vent", "soiled vent feathers", "trembling",
+        "prostration", "mortality in 3 to 4 days", "white paste droppings"
+      ],
+      "distinguishing_symptoms": [
+        "picking at their own vent", "soiled vent feathers",
+        "whitish diarrhoea", "mortality in 3 to 4 days"
+      ],
+      "symptom_weights": {
+        "picking at their own vent": 4, "soiled vent feathers": 3,
+        "watery diarrhoea": 2, "whitish diarrhoea": 3,
+        "white paste droppings": 3, "huddling": 2,
+        "sudden onset diarrhoea": 2, "ruffled feathers": 1,
+        "dehydration": 1, "trembling": 2, "prostration": 2
+      },
+      "confidence_keywords": [
+        "vent picking", "white dropping", "whitish stool", "bursal",
+        "3 week old", "4 week old", "5 week old", "sudden chick death"
+      ],
+      "first_aid": "Isolate affected birds. Provide clean water immediately with oral rehydration salts. Reduce stress by lowering light intensity. Remove wet litter immediately.",
+      "treatment": "No antiviral treatment. Supportive: electrolytes, vitamins A D E K in water. Broad-spectrum antibiotics only to control secondary infections.",
+      "biosecurity_actions": [
+        "Isolate affected pen immediately",
+        "The IBD virus survives in the environment for months — full disinfection required",
+        "Remove and replace all litter",
+        "Fumigate with formaldehyde or approved disinfectant before restocking",
+        "Do not allow visitors to affected pen"
+      ],
+      "prevention": "Vaccinate at day 14-18 using IBD live vaccine in drinking water. Booster at day 28. Ensure biosecurity as virus survives months in environment.",
+      "vaccination_notes": "IBD intermediate live vaccine at day 14-18 via drinking water. Withhold water 1-2 hours before vaccination. Booster at day 28. Maternal antibodies may interfere — timing critical.",
+      "when_to_call_vet": "If mortality exceeds 5% within 48 hours or if secondary infections are suspected.",
+      "mortality_rate": "20-30%, up to 60% with secondary infections",
+      "incubation_days": "2-3",
+      "contagious": true,
+      "zoonotic": false,
+      "references": [
+        "FAO Poultry Health Manual",
+        "NVRI Nigeria IBD Guidelines",
+        "OIE Terrestrial Manual Chapter 3.3.12"
+      ]
+    },
+    {
+      "id": "COC001",
+      "name": "Coccidiosis",
+      "aliases": ["cocci", "bloody diarrhoea disease", "coccidiosis"],
+      "affected_birds": ["broiler chicks 2-8 weeks", "layer pullets"],
+      "severity": "moderate",
+      "vet_referral": false,
+      "symptoms": [
+        "bloody diarrhoea", "blood in droppings", "reddish droppings",
+        "brownish droppings", "pale comb", "pale wattles", "drooping wings",
+        "huddling near heat source", "weight loss", "poor weight gain",
+        "rough feathers", "dull feathers", "loss of appetite", "lethargy",
+        "dehydration", "high chick mortality"
+      ],
+      "distinguishing_symptoms": [
+        "bloody diarrhoea", "blood in droppings", "reddish droppings", "pale comb"
+      ],
+      "symptom_weights": {
+        "bloody diarrhoea": 4, "blood in droppings": 4,
+        "reddish droppings": 4, "pale comb": 2, "pale wattles": 2,
+        "huddling near heat source": 2, "rough feathers": 1,
+        "weight loss": 1, "drooping wings": 1, "poor weight gain": 1
+      },
+      "confidence_keywords": [
+        "blood stool", "red dropping", "bloody dropping", "pale comb",
+        "chick dying", "wet litter", "damp litter"
+      ],
+      "first_aid": "Start anticoccidial treatment immediately. Amprolium is the first-line drug. Remove and replace wet litter. Ensure drinkers and feeders are clean and dry.",
+      "treatment": "Amprolium 20%: 30ml per 10 litres of water for 5-7 days. Alternative: Toltrazuril (Baycox) 1ml per litre for 2 consecutive days. Follow with vitamins K and B-complex.",
+      "biosecurity_actions": [
+        "Keep litter dry at all times",
+        "Repair leaking drinkers immediately",
+        "Reduce stocking density",
+        "Clean and disinfect housing between flocks",
+        "Rotate anticoccidials to prevent resistance"
+      ],
+      "prevention": "Keep litter dry. Use coccidiostats in starter feed. Avoid overcrowding. Clean between flocks.",
+      "vaccination_notes": "Coccivac (live oocyst vaccine) available for broilers. Not widely used in Nigeria. Anticoccidials in feed remain standard prevention.",
+      "when_to_call_vet": "If mortality continues after 48 hours of treatment or if cecal coccidiosis (Eimeria tenella) is suspected.",
+      "mortality_rate": "Variable by Eimeria species. Eimeria tenella (cecal form) highest mortality.",
+      "incubation_days": "4-7",
+      "contagious": true,
+      "zoonotic": false,
+      "references": [
+        "FAO Poultry Health Manual",
+        "Merck Veterinary Manual 11th Edition",
+        "NVRI Nigeria Coccidiosis Technical Note"
+      ]
+    },
+    {
+      "id": "FT001",
+      "name": "Fowl Typhoid",
+      "aliases": ["FT", "salmonellosis", "fowl typhoid", "pullorum"],
+      "affected_birds": ["adult layers", "broilers", "breeding stock"],
+      "severity": "critical",
+      "vet_referral": true,
+      "symptoms": [
+        "greenish yellow diarrhoea", "yellowish diarrhoea", "sulphur yellow diarrhoea",
+        "sudden death in adults", "drop in egg production", "pale shrunken comb",
+        "anaemia", "increased thirst", "loss of appetite", "listlessness",
+        "ruffled feathers", "increased mortality in adults",
+        "high mortality in young birds", "joint swelling", "lameness"
+      ],
+      "distinguishing_symptoms": [
+        "sulphur yellow diarrhoea", "greenish yellow diarrhoea",
+        "pale shrunken comb", "sudden death in adults"
+      ],
+      "symptom_weights": {
+        "greenish yellow diarrhoea": 4, "sulphur yellow diarrhoea": 4,
+        "yellowish diarrhoea": 3, "pale shrunken comb": 3,
+        "anaemia": 2, "sudden death in adults": 2,
+        "lameness": 1, "joint swelling": 1,
+        "drop in egg production": 1, "increased thirst": 1
+      },
+      "confidence_keywords": [
+        "yellow stool", "sulphur dropping", "adult bird death",
+        "shrunken comb", "anaemic", "egg production drop adult"
+      ],
+      "first_aid": "Isolate sick birds. Collect dead birds for post-mortem. Do not use eggs from affected flocks. Notify a veterinarian.",
+      "treatment": "Enrofloxacin 10mg/kg body weight in water for 5 days. Alternative: Trimethoprim-Sulphonamide for 5-7 days. Treatment reduces mortality but does not eliminate carrier state.",
+      "biosecurity_actions": [
+        "Remove and isolate affected birds immediately",
+        "Strict rodent control — rodents are major vectors",
+        "Disinfect drinkers and feeders daily",
+        "Do not hatch eggs from affected breeding flocks",
+        "Test breeding flocks regularly for Salmonella"
+      ],
+      "prevention": "Source birds from Salmonella-free hatcheries. Vaccinate breeding stock with 9R live vaccine where available. Strict rodent control.",
+      "vaccination_notes": "9R live attenuated vaccine for breeding flocks. Not routinely used in commercial broiler production. Biosecurity and sourcing remain primary prevention.",
+      "when_to_call_vet": "Immediately. Fowl Typhoid is a notifiable disease. Zoonotic risk exists for humans handling infected birds.",
+      "mortality_rate": "10-50% acute form; chronic form causes persistent losses",
+      "incubation_days": "4-5",
+      "contagious": true,
+      "zoonotic": true,
+      "zoonotic_note": "Salmonella Gallinarum can infect immunocompromised humans. Handle dead birds with gloves and wash hands thoroughly.",
+      "references": [
+        "FAO Animal Health Manual",
+        "NVRI Nigeria Salmonella Guidelines",
+        "OIE Terrestrial Manual Chapter 3.3.11"
+      ]
+    },
+    {
+      "id": "MD001",
+      "name": "Marek's Disease",
+      "aliases": ["MD", "range paralysis", "neural lymphomatosis", "marek"],
+      "affected_birds": ["unvaccinated pullets 6-20 weeks", "layer hens"],
+      "severity": "critical",
+      "vet_referral": true,
+      "symptoms": [
+        "leg paralysis", "wing paralysis", "partial paralysis",
+        "one leg forward one leg back", "progressive paralysis",
+        "weight loss", "wasting", "grey iris", "irregular pupil",
+        "blindness", "skin tumours", "enlarged feather follicles",
+        "sudden death without symptoms", "depression", "loss of appetite", "pale comb"
+      ],
+      "distinguishing_symptoms": [
+        "one leg forward one leg back", "grey iris", "skin tumours",
+        "enlarged feather follicles", "progressive paralysis"
+      ],
+      "symptom_weights": {
+        "leg paralysis": 3, "one leg forward one leg back": 5,
+        "wing paralysis": 3, "progressive paralysis": 4,
+        "grey iris": 5, "blindness": 3, "skin tumours": 4,
+        "enlarged feather follicles": 4, "wasting": 1, "weight loss": 1
+      },
+      "confidence_keywords": [
+        "one leg forward", "split leg", "grey eye", "skin lump",
+        "feather follicle", "progressive weakness", "pullet paralysis"
+      ],
+      "first_aid": "No treatment. Separate paralysed birds to prevent trampling. Provide food and water within reach. Cull birds that cannot eat or drink independently.",
+      "treatment": "No curative treatment. Supportive care only. Culling affected birds reduces virus shedding.",
+      "biosecurity_actions": [
+        "Vaccinate ALL chicks within 24 hours of hatch — this is the only effective prevention",
+        "Marek's virus spreads via feather dust — maintain strict ventilation controls",
+        "Clean and disinfect thoroughly between flocks",
+        "Do not mix vaccinated and unvaccinated birds"
+      ],
+      "prevention": "Vaccinate ALL chicks at hatchery within 24 hours of hatch with HVT or bivalent Rispens + HVT vaccine. Vaccine prevents disease but not infection.",
+      "vaccination_notes": "HVT (Herpesvirus of Turkeys) vaccine at day 1 subcutaneous injection. Bivalent Rispens + HVT preferred for high-pressure environments. Must be given before any exposure — does not treat existing infection.",
+      "when_to_call_vet": "When progressive paralysis appears in multiple birds. Necropsy required to confirm diagnosis.",
+      "mortality_rate": "Up to 100% in unvaccinated susceptible flocks",
+      "incubation_days": "21-180",
+      "contagious": true,
+      "zoonotic": false,
+      "references": [
+        "FAO Animal Health Manual",
+        "Merck Veterinary Manual 11th Edition",
+        "NVRI Nigeria Marek's Disease Technical Note"
+      ]
+    },
+    {
+      "id": "FC001",
+      "name": "Fowl Cholera",
+      "aliases": ["FC", "avian cholera", "avian pasteurellosis", "pasteurella"],
+      "affected_birds": ["adult layers", "broilers over 4 weeks", "turkeys", "ducks"],
+      "severity": "critical",
+      "vet_referral": true,
+      "symptoms": [
+        "sudden death", "blue discoloration of comb", "cyanosis",
+        "swollen wattles", "mucous discharge from mouth", "laboured breathing",
+        "rattling breathing", "greenish diarrhoea", "loss of appetite",
+        "high fever", "ruffled feathers", "swollen joints", "lameness",
+        "torticollis in chronic form", "nasal discharge", "ocular discharge"
+      ],
+      "distinguishing_symptoms": [
+        "blue discoloration of comb", "cyanosis", "swollen wattles",
+        "mucous discharge from mouth", "sudden death adult birds"
+      ],
+      "symptom_weights": {
+        "blue discoloration of comb": 5, "cyanosis": 5,
+        "swollen wattles": 4, "mucous discharge from mouth": 4,
+        "sudden death": 3, "laboured breathing": 2,
+        "rattling breathing": 2, "greenish diarrhoea": 2,
+        "swollen joints": 2, "lameness": 1, "high fever": 2
+      },
+      "confidence_keywords": [
+        "blue comb", "purple comb", "swollen wattle", "mouth discharge",
+        "sudden adult death", "cyanosis", "pasteurella"
+      ],
+      "first_aid": "Start antibiotic treatment immediately. Isolate affected birds. Provide clean water. Remove dead birds immediately and dispose safely.",
+      "treatment": "Penicillin or Tetracycline in water for 5-7 days. Sulphonamides also effective. Continue treatment for 2-3 days after apparent recovery to prevent relapse.",
+      "biosecurity_actions": [
+        "Remove and dispose of dead birds immediately by burial or incineration",
+        "Strict rodent and wild bird control — major reservoir hosts",
+        "Disinfect all equipment and water sources",
+        "Restrict farm access",
+        "Do not allow wet conditions — Pasteurella thrives in wet environments"
+      ],
+      "prevention": "Bacterin vaccines available but provide limited cross-protection. Biosecurity and rodent control are primary prevention. Avoid stress, overcrowding and wet litter.",
+      "vaccination_notes": "Pasteurella multocida bacterin available. Efficacy varies by serotype. Consult veterinarian for appropriate strain. Biosecurity remains most effective prevention.",
+      "when_to_call_vet": "Immediately on suspicion. Mortality can be very rapid in peracute form.",
+      "mortality_rate": "Up to 100% in peracute form; 20-50% in acute form",
+      "incubation_days": "1-3",
+      "contagious": true,
+      "zoonotic": false,
+      "references": [
+        "FAO Poultry Health Manual",
+        "Merck Veterinary Manual 11th Edition",
+        "OIE Terrestrial Manual Chapter 3.3.9"
+      ]
+    },
+    {
+      "id": "IB001",
+      "name": "Infectious Bronchitis",
+      "aliases": ["IB", "bronchitis", "infectious bronchitis"],
+      "affected_birds": ["broilers", "layers all ages"],
+      "severity": "moderate",
+      "vet_referral": false,
+      "symptoms": [
+        "gasping", "coughing", "sneezing", "tracheal rales",
+        "nasal discharge", "watery eyes", "drop in egg production",
+        "misshapen eggs", "thin-shelled eggs", "watery egg white",
+        "reduced feed consumption", "huddling", "depression",
+        "wet eyes", "swollen sinuses"
+      ],
+      "distinguishing_symptoms": [
+        "misshapen eggs", "watery egg white", "tracheal rales",
+        "drop in egg production with respiratory signs"
+      ],
+      "symptom_weights": {
+        "tracheal rales": 4, "misshapen eggs": 5, "watery egg white": 5,
+        "drop in egg production": 3, "gasping": 2, "coughing": 2,
+        "sneezing": 2, "nasal discharge": 2, "watery eyes": 2,
+        "huddling": 1, "swollen sinuses": 2
+      },
+      "confidence_keywords": [
+        "misshapen egg", "deformed egg", "watery egg", "egg quality drop",
+        "tracheal rattle", "respiratory and egg", "bronchitis"
+      ],
+      "first_aid": "No specific treatment. Provide warmth. Reduce stocking density. Add vitamins and electrolytes to water. Antibiotics for secondary bacterial infection only.",
+      "treatment": "Supportive: vitamins, electrolytes. Broad-spectrum antibiotics (Tylosin, Doxycycline) to prevent secondary E. coli or Mycoplasma infection. Keep birds warm.",
+      "biosecurity_actions": [
+        "Improve ventilation without creating draughts",
+        "Reduce stocking density",
+        "Disinfect drinking water",
+        "Separate young chicks from older birds"
+      ],
+      "prevention": "Vaccinate with live IB vaccine (Massachusetts and 4/91 strains) at day 1 and day 14 via spray or drinking water. Booster at 6 weeks.",
+      "vaccination_notes": "Live H120 (Massachusetts strain) at day 1 and day 14. 4/91 strain booster at 4-6 weeks for layers. Multiple strains circulate — local strain matching important. Annual review of vaccination programme recommended.",
+      "when_to_call_vet": "If egg production does not recover within 3 weeks or if nephropathogenic strain is suspected (increased mortality, wet droppings).",
+      "mortality_rate": "Low in adults; up to 25% in young unprotected chicks",
+      "incubation_days": "2-4",
+      "contagious": true,
+      "zoonotic": false,
+      "references": [
+        "FAO Poultry Health Manual",
+        "OIE Terrestrial Manual Chapter 3.3.2",
+        "Merck Veterinary Manual 11th Edition"
+      ]
+    },
+    {
+      "id": "AI001",
+      "name": "Avian Influenza",
+      "aliases": ["AI", "bird flu", "avian flu", "HPAI", "LPAI", "highly pathogenic avian influenza"],
+      "affected_birds": ["all poultry species", "wild birds"],
+      "severity": "critical",
+      "vet_referral": true,
+      "symptoms": [
+        "sudden massive death", "severe respiratory distress", "cyanosis of comb and wattles",
+        "haemorrhage on legs", "haemorrhage on feet", "swollen head",
+        "swollen face", "nasal discharge", "ocular discharge",
+        "green diarrhoea", "nervous signs", "complete cessation of egg production",
+        "haemorrhage in internal organs", "oedema of head and neck"
+      ],
+      "distinguishing_symptoms": [
+        "haemorrhage on legs", "haemorrhage on feet",
+        "sudden massive death entire flock", "swollen head and face",
+        "cyanosis of comb and wattles"
+      ],
+      "symptom_weights": {
+        "sudden massive death": 5, "haemorrhage on legs": 5,
+        "haemorrhage on feet": 5, "cyanosis of comb and wattles": 5,
+        "swollen head": 4, "swollen face": 4,
+        "oedema of head and neck": 4, "severe respiratory distress": 3,
+        "complete cessation of egg production": 3, "green diarrhoea": 2,
+        "nervous signs": 2
+      },
+      "confidence_keywords": [
+        "bleeding leg", "haemorrhage foot", "massive sudden death",
+        "entire flock dead", "blue comb purple comb",
+        "swollen face", "bird flu", "HPAI"
+      ],
+      "first_aid": "DO NOT HANDLE DEAD BIRDS WITHOUT PROTECTIVE EQUIPMENT. Immediately report to the nearest veterinary authority. Do not move any birds. Restrict all farm access.",
+      "treatment": "No treatment. HPAI requires immediate government response and controlled culling. This is a notifiable disease.",
+      "biosecurity_actions": [
+        "IMMEDIATE REPORTABLE DISEASE — notify veterinary authority now",
+        "Do not move birds, eggs, litter or equipment off the farm",
+        "Wear gloves and face covering when handling dead birds",
+        "Restrict all access to farm — human and vehicle",
+        "Do not sell birds or products from affected farm"
+      ],
+      "prevention": "Strict biosecurity. Prevent contact with wild birds. Vaccination available in some countries but not standard in Nigeria. Biosecurity is the primary prevention.",
+      "vaccination_notes": "AI vaccination programmes exist (H5N1, H5N2 inactivated vaccines) but are government-controlled in Nigeria. Contact Federal Department of Livestock Services.",
+      "when_to_call_vet": "IMMEDIATELY. Avian Influenza is a Class A notifiable disease. Delay in reporting is a legal offence in Nigeria.",
+      "mortality_rate": "Up to 100% in HPAI-affected flocks within 48 hours",
+      "incubation_days": "1-5",
+      "contagious": true,
+      "zoonotic": true,
+      "zoonotic_note": "H5N1 and H5N8 strains can infect humans. Do not handle dead birds without PPE. Seek medical attention if fever develops after exposure.",
+      "references": [
+        "OIE Terrestrial Manual Chapter 3.3.4",
+        "FAO EMPRES Avian Influenza Guidelines",
+        "Federal Ministry of Agriculture Nigeria AI Contingency Plan"
+      ]
+    },
+    {
+      "id": "IC001",
+      "name": "Infectious Coryza",
+      "aliases": ["IC", "coryza", "roup", "snot", "avibacterium"],
+      "affected_birds": ["layers 14 weeks and above", "broilers"],
+      "severity": "moderate",
+      "vet_referral": false,
+      "symptoms": [
+        "foul-smelling nasal discharge", "swollen face", "swollen sinuses",
+        "swollen infraorbital sinuses", "watery eyes", "conjunctivitis",
+        "facial oedema", "difficulty breathing", "reduced feed intake",
+        "drop in egg production", "sneezing", "head shaking", "loss of appetite"
+      ],
+      "distinguishing_symptoms": [
+        "foul-smelling nasal discharge", "swollen infraorbital sinuses",
+        "facial oedema", "foul smell"
+      ],
+      "symptom_weights": {
+        "foul-smelling nasal discharge": 5, "swollen infraorbital sinuses": 5,
+        "facial oedema": 4, "swollen face": 4, "swollen sinuses": 4,
+        "conjunctivitis": 3, "watery eyes": 2, "sneezing": 2,
+        "drop in egg production": 2, "head shaking": 2
+      },
+      "confidence_keywords": [
+        "smelly discharge", "foul smell nose", "swollen face",
+        "facial swelling", "sinus swelling", "roup", "snot"
+      ],
+      "first_aid": "Treat with antibiotics immediately. Sulphonamides or Erythromycin are first-line. Separate affected birds. Improve ventilation.",
+      "treatment": "Sulphadimethoxine in water for 5-7 days. Alternatively Erythromycin or Doxycycline. Treat entire flock as subclinical carriers may exist.",
+      "biosecurity_actions": [
+        "Isolate affected birds immediately",
+        "Improve ventilation — Avibacterium spreads via respiratory droplets",
+        "Disinfect drinkers and feeders",
+        "Do not mix birds of different ages",
+        "Birds that recover remain carriers — do not introduce recovered birds to clean flocks"
+      ],
+      "prevention": "All-in all-out management. Do not introduce birds from unknown sources. Bacterin vaccines available in some markets. Reduce stress and ammonia levels.",
+      "vaccination_notes": "Inactivated bacterin vaccines available in some markets. Protect only against homologous serotypes (A, B, C). Consult veterinarian for local serotype.",
+      "when_to_call_vet": "If swelling spreads to involve the neck or if antibiotic treatment shows no response within 48 hours.",
+      "mortality_rate": "Low mortality but severe production losses. Morbidity can reach 100%.",
+      "incubation_days": "1-3",
+      "contagious": true,
+      "zoonotic": false,
+      "references": [
+        "Merck Veterinary Manual 11th Edition",
+        "FAO Poultry Health Manual",
+        "OIE Terrestrial Manual Chapter 3.3.1"
+      ]
+    },
+    {
+      "id": "CRD001",
+      "name": "Chronic Respiratory Disease",
+      "aliases": ["CRD", "mycoplasmosis", "MG", "mycoplasma gallisepticum", "air sac disease"],
+      "affected_birds": ["broilers 4-8 weeks", "layers all ages"],
+      "severity": "moderate",
+      "vet_referral": false,
+      "symptoms": [
+        "chronic coughing", "sneezing", "nasal discharge", "tracheal rales",
+        "slow spread through flock", "reduced feed conversion",
+        "reduced weight gain", "drop in egg production",
+        "foamy eye discharge", "air sacculitis", "laboured breathing",
+        "reduced growth rate", "depression"
+      ],
+      "distinguishing_symptoms": [
+        "slow spread through flock", "foamy eye discharge",
+        "chronic coughing persisting weeks", "air sacculitis"
+      ],
+      "symptom_weights": {
+        "foamy eye discharge": 5, "slow spread through flock": 4,
+        "chronic coughing": 4, "tracheal rales": 3,
+        "air sacculitis": 5, "reduced weight gain": 2,
+        "nasal discharge": 2, "sneezing": 1,
+        "drop in egg production": 2, "reduced feed conversion": 2
+      },
+      "confidence_keywords": [
+        "foamy eye", "slow spread", "chronic respiratory",
+        "weeks of coughing", "mycoplasma", "air sac", "CRD"
+      ],
+      "first_aid": "Begin antibiotic treatment. Tylosin or Doxycycline are first-line for Mycoplasma. Reduce stocking density and improve ventilation.",
+      "treatment": "Tylosin tartrate 500mg/litre water for 5 days. Alternative: Doxycycline 20mg/kg for 5-7 days. Enrofloxacin effective but reserve for resistant cases. Treat entire flock.",
+      "biosecurity_actions": [
+        "Improve ventilation immediately",
+        "Reduce stocking density",
+        "Reduce dust and ammonia levels",
+        "Source replacement stock from MG-free flocks only",
+        "Mycoplasma is egg-transmitted — avoid breeding from affected hens"
+      ],
+      "prevention": "Source MG-free chicks. Maintain good ventilation. Reduce stressors. MG live vaccine available — consult veterinarian.",
+      "vaccination_notes": "MG live vaccine (6/85 or ts-11 strain) available. Used mainly in layer breeding flocks. Vaccination does not eliminate the organism — reduces clinical signs only.",
+      "when_to_call_vet": "If no improvement after 5 days of antibiotic treatment or if concurrent infection with Newcastle or IB is suspected.",
+      "mortality_rate": "Low mortality but severe production and weight gain losses",
+      "incubation_days": "6-21",
+      "contagious": true,
+      "zoonotic": false,
+      "references": [
+        "Merck Veterinary Manual 11th Edition",
+        "FAO Poultry Health Manual",
+        "NVRI Nigeria Mycoplasma Technical Note"
+      ]
+    },
+    {
+      "id": "ASP001",
+      "name": "Aspergillosis",
+      "aliases": ["brooder pneumonia", "mycotic pneumonia", "aspergillosis", "fungal pneumonia"],
+      "affected_birds": ["chicks 1-10 days old", "immunocompromised adults"],
+      "severity": "moderate",
+      "vet_referral": false,
+      "symptoms": [
+        "gasping in young chicks", "laboured breathing", "sleepiness",
+        "loss of appetite", "rapid breathing", "extended neck to breathe",
+        "bluish tinge of comb", "nervous signs in some cases",
+        "sudden death of chicks", "white spots on lung at necropsy",
+        "poor growth", "huddling", "dullness"
+      ],
+      "distinguishing_symptoms": [
+        "gasping in young chicks under 10 days",
+        "extended neck to breathe", "sleepiness in chicks",
+        "white spots on lung at necropsy"
+      ],
+      "symptom_weights": {
+        "gasping in young chicks": 4, "extended neck to breathe": 4,
+        "sleepiness": 3, "laboured breathing": 3,
+        "rapid breathing": 3, "white spots on lung at necropsy": 5,
+        "sudden death of chicks": 2, "bluish tinge of comb": 2,
+        "poor growth": 1, "huddling": 1
+      },
+      "confidence_keywords": [
+        "chick gasping day 1", "brooder chick death", "fungal",
+        "mouldy litter", "mouldy feed", "aspergillus",
+        "brooder pneumonia", "new chick gasping"
+      ],
+      "first_aid": "Remove source of mould immediately. Replace all litter. Discard mouldy feed. Improve ventilation in brooder. Antifungal treatment with Amphotericin B or Nystatin under veterinary guidance.",
+      "treatment": "Copper sulphate 1:2000 in drinking water for 3 days. Nystatin in feed. Amphotericin B for severe cases under veterinary guidance. Remove mouldy feed and litter immediately.",
+      "biosecurity_actions": [
+        "Remove and replace all mouldy litter immediately",
+        "Discard any mouldy or damp feed",
+        "Fumigate brooder before placing new chicks",
+        "Ensure good ventilation in brooder",
+        "Do not use sawdust or wood shavings from unknown sources"
+      ],
+      "prevention": "Use clean dry litter from trusted sources. Store feed dry and use within recommended period. Fumigate brooder before new placement. Ensure adequate ventilation.",
+      "vaccination_notes": "No vaccine available. Prevention through biosecurity and litter management is the only effective approach.",
+      "when_to_call_vet": "If chick mortality exceeds 10% or if adult birds are affected.",
+      "mortality_rate": "Up to 50% in severely affected chick batches",
+      "incubation_days": "2-7",
+      "contagious": false,
+      "zoonotic": true,
+      "zoonotic_note": "Aspergillus fumigatus can cause pulmonary aspergillosis in immunocompromised humans. Avoid inhaling mouldy litter dust. Wear a face mask when handling mouldy material.",
+      "references": [
+        "Merck Veterinary Manual 11th Edition",
+        "FAO Poultry Health Manual",
+        "OIE Terrestrial Manual Chapter 3.3.3"
+      ]
+    },
+    {
+      "id": "EDS001",
+      "name": "Egg Drop Syndrome",
+      "aliases": ["EDS", "EDS-76", "egg drop syndrome 76", "adenovirus egg drop"],
+      "affected_birds": ["laying hens 25-35 weeks", "breeding hens"],
+      "severity": "low",
+      "vet_referral": false,
+      "symptoms": [
+        "sudden drop in egg production", "thin-shelled eggs", "soft-shelled eggs",
+        "shell-less eggs", "pale-shelled eggs", "loss of egg shell pigmentation",
+        "watery egg white", "misshapen eggs", "normal bird health otherwise",
+        "no mortality", "no respiratory signs", "flock otherwise appears healthy"
+      ],
+      "distinguishing_symptoms": [
+        "sudden drop in egg production with no other illness",
+        "shell-less eggs", "pale-shelled eggs",
+        "flock appears otherwise healthy"
+      ],
+      "symptom_weights": {
+        "sudden drop in egg production": 3, "shell-less eggs": 5,
+        "pale-shelled eggs": 5, "loss of egg shell pigmentation": 5,
+        "watery egg white": 4, "thin-shelled eggs": 4,
+        "soft-shelled eggs": 4, "no mortality": 2,
+        "flock otherwise appears healthy": 3, "misshapen eggs": 3
+      },
+      "confidence_keywords": [
+        "no shell egg", "pale egg", "shell less", "soft shell",
+        "egg production drop healthy birds", "white egg brown layer",
+        "egg quality drop", "EDS"
+      ],
+      "first_aid": "No treatment. Confirm diagnosis. Review vaccination history. Supplement diet with calcium and Vitamin D3. Check feed formulation.",
+      "treatment": "No specific treatment. Supportive: calcium supplementation, Vitamin D3. Ensure correct feed formulation for laying birds. Egg production typically recovers in 4-8 weeks.",
+      "biosecurity_actions": [
+        "Remove affected eggs from hatchery use immediately",
+        "Do not use eggs from affected flock for hatching",
+        "Prevent wild duck and waterfowl access to farm — primary reservoir"
+      ],
+      "prevention": "Vaccinate all layer replacements with inactivated EDS-76 vaccine at 14-18 weeks before onset of lay. This is the primary prevention.",
+      "vaccination_notes": "Inactivated oil-emulsion EDS-76 vaccine given once at 14-18 weeks via intramuscular injection. Highly effective. Often combined with ND and IB in multivalent vaccines.",
+      "when_to_call_vet": "If egg production does not recover within 8 weeks or if differential diagnosis with IB or ND is needed.",
+      "mortality_rate": "No mortality. Production losses only.",
+      "incubation_days": "7-17",
+      "contagious": true,
+      "zoonotic": false,
+      "references": [
+        "Merck Veterinary Manual 11th Edition",
+        "FAO Poultry Health Manual",
+        "OIE Terrestrial Manual Chapter 3.3.3"
+      ]
+    }
+  ]
+}

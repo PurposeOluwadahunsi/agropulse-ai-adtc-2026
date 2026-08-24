@@ -1,0 +1,39 @@
+# Dependencies
+# Python 3.10+
+
+# Core framework
+streamlit==1.35.0
+
+# LLM
+ollama==0.2.1
+
+# RAG / Embeddings
+chromadb==0.5.3
+sentence-transformers==3.0.1
+
+# Voice
+openai-whisper==20231117
+sounddevice==0.4.6
+scipy==1.13.1
+
+# Document ingestion
+pypdf==4.2.0
+
+# Utilities
+python-dotenv==1.0.1
+pydantic==2.7.4
+loguru==0.7.2
+numpy==1.26.4
+
+# Analytics
+plotly==5.22.0
+pandas==2.2.2
+
+# Reports
+reportlab==4.2.0
+
+# Text-to-speech
+pyttsx3==2.90
+
+# System diagnostics 
+psutil==5.9.8
