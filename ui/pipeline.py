@@ -1,11 +1,3 @@
-"""
-ui/pipeline.py  (Sprint 5 — optimised)
-
-Sprint 5 changes:
-    - Per-stage timing added to result dict (triage_ms, rag_ms, llm_ms)
-    - run_startup reuses existing ChromaDB collection via module singleton
-    - No other interface changes — fully backward compatible
-"""
 
 from __future__ import annotations
 

@@ -1,4 +1,3 @@
-"""ui/charts.py (Sprint 10) — Plotly chart components using existing DB data."""
 from __future__ import annotations
 from typing import Any
 import streamlit as st

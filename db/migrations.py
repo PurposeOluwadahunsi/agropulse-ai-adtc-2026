@@ -1,7 +1,7 @@
 """
-db/migrations.py (Sprint 9 — extended)
+
 Runs schema.sql idempotently on every startup.
-All new Sprint 9 tables use IF NOT EXISTS — safe to re-run.
+
 """
 from __future__ import annotations
 import logging

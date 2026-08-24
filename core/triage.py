@@ -1,5 +1,4 @@
 """
-core/triage.py  (Sprint 4 — upgraded)
 
 Rule-based symptom triage engine for AgroPulse AI.
 
@@ -9,7 +8,7 @@ Improvements over Sprint 2:
     - Confidence explanation (why a disease was selected)
     - Severity pulled directly from vetdb.json
     - Runner-up disease reported for transparency
-    - Same external interface — fully backward compatible
+    - Same external interface fully backward compatible
 """
 
 from __future__ import annotations
@@ -35,11 +34,11 @@ class TriageResult:
     Result from the triage engine.
 
     Fields are identical to Sprint 2 plus:
-        explanation     — human-readable string explaining the match
-        runner_up       — second-best disease name (or None)
-        runner_up_score — score of the runner-up
-        biosecurity     — list of biosecurity actions from vetdb
-        when_to_call_vet — veterinary intervention guidance string
+        explanation     - human-readable string explaining the match
+        runner_up       - second-best disease name (or None)
+        runner_up_score - score of the runner-up
+        biosecurity     - list of biosecurity actions from vetdb
+        when_to_call_vet - veterinary intervention guidance string
     """
     matched:           bool        = False
     disease_name:      str | None  = None
@@ -186,7 +185,7 @@ class TriageEngine:
         if dist_matched:
             parts.append(
                 f"Particularly significant indicators include: "
-                f"{', '.join(dist_matched)} — these are distinguishing symptoms "
+                f"{', '.join(dist_matched)}, these are distinguishing symptoms "
                 f"strongly associated with {disease['name']}."
             )
         if aliases_hit:
@@ -338,7 +337,6 @@ class TriageEngine:
         )
 
 
-# ── Module-level singleton ────────────────────────────────────────
 
 _engine: TriageEngine | None = None
 
@@ -355,7 +353,6 @@ def triage(query: str) -> TriageResult:
     return get_triage_engine().match(query)
 
 
-# ── Self-test ─────────────────────────────────────────────────────
 
 if __name__ == "__main__":
     logging.basicConfig(
@@ -364,7 +361,6 @@ if __name__ == "__main__":
     )
 
     print("=" * 70)
-    print("AgroPulse AI — Sprint 4 Triage Engine Test")
     print("=" * 70)
 
     engine = TriageEngine()

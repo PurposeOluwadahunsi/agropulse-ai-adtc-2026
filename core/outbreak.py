@@ -1,4 +1,3 @@
-"""core/outbreak.py — Outbreak pattern detection from consultation history."""
 from __future__ import annotations
 from collections import defaultdict
 from dataclasses import dataclass, field

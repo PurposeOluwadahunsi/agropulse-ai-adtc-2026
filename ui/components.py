@@ -1,10 +1,4 @@
-"""
-ui/components.py  (Sprint 6 — redesigned)
 
-All reusable HTML components for AgroPulse AI.
-Every component uses design tokens from styles.py.
-app.py calls these — no raw HTML elsewhere.
-"""
 
 from __future__ import annotations
 from typing import Any

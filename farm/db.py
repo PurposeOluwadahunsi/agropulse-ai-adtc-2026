@@ -1,4 +1,3 @@
-"""farm/db.py — Shared DB utilities for Sprint 9 farm modules."""
 from __future__ import annotations
 from db.migrations import get_connection
 from datetime import date, timedelta
@@ -10,7 +9,7 @@ def today() -> str:
 def days_ago(n: int) -> str:
     return (date.today() - timedelta(days=n)).isoformat()
 
-# ── Livestock ─────────────────────────────────────────────────────
+#  Livestock 
 
 def ls_all() -> list[dict]:
     conn = get_connection()
@@ -51,7 +50,7 @@ def ls_by_type() -> dict[str,int]:
     conn.close()
     return {r["bird_type"]: r["total"] for r in rows}
 
-# ── Mortality ─────────────────────────────────────────────────────
+# Mortality 
 
 def mort_all(limit=50) -> list[dict]:
     conn = get_connection()
@@ -99,7 +98,7 @@ def mort_trend(days=14) -> list[dict]:
     conn.close()
     return [dict(r) for r in rows]
 
-# ── Feed ──────────────────────────────────────────────────────────
+# Feed 
 
 def feed_all() -> list[dict]:
     conn = get_connection()
@@ -139,7 +138,7 @@ def feed_low_stock(threshold_days=3) -> list[dict]:
                 low.append(item)
     return low
 
-# ── Medication ────────────────────────────────────────────────────
+#  Medication 
 
 def med_all() -> list[dict]:
     conn = get_connection()
@@ -182,7 +181,7 @@ def med_alerts() -> dict:
         if m["quantity"] <= 10: low.append(m)
     return {"expired": expired, "expiring_soon": expiring, "low_stock": low}
 
-# ── Vaccination ───────────────────────────────────────────────────
+#  Vaccination 
 
 def vacc_all() -> list[dict]:
     conn = get_connection()
@@ -227,7 +226,7 @@ def vacc_overdue() -> list[dict]:
             conn2.execute("UPDATE vaccination SET status='missed' WHERE id=?", (r["id"],))
     return [dict(r) for r in rows]
 
-# ── Egg production ────────────────────────────────────────────────
+#  Egg production 
 
 def egg_all(limit=30) -> list[dict]:
     conn = get_connection()

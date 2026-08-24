@@ -1,4 +1,3 @@
-"""farm/smart.py — Smart Farm Operations UI panels."""
 from __future__ import annotations
 import streamlit as st
 from typing import Any

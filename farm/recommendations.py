@@ -1,4 +1,3 @@
-"""farm/recommendations.py — Smart recommendations from actual farm data only."""
 from __future__ import annotations
 from dataclasses import dataclass
 import farm.db as db

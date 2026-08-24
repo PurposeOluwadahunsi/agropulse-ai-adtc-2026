@@ -1,4 +1,4 @@
-"""ui/reports.py — PDF report export using reportlab."""
+"""PDF report export using reportlab."""
 from __future__ import annotations
 import io
 from datetime import datetime

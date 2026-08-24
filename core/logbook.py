@@ -1,7 +1,6 @@
 """
-core/logbook.py
 
-Farm logbook — all database read/write operations for AgroPulse AI.
+Farm logbook - all database read/write operations for AgroPulse AI.
 
 Every query+response pair is persisted here automatically.
 No other module writes to the database directly.
@@ -64,9 +63,6 @@ class Logbook:
         run_migrations()
         logger.info("Logbook ready.")
 
-    # ─────────────────────────────────────────────
-    # Session management
-    # ─────────────────────────────────────────────
 
     def start_session(self) -> str:
         """
@@ -122,9 +118,7 @@ class Logbook:
             )
         conn.close()
 
-    # ─────────────────────────────────────────────
-    # Log writes
-    # ─────────────────────────────────────────────
+
 
     def write_entry(self, entry: LogEntry) -> int:
         """
@@ -195,9 +189,7 @@ class Logbook:
         except Exception as exc:
             raise RuntimeError(f"Failed to write log entry: {exc}") from exc
 
-    # ─────────────────────────────────────────────
-    # Log reads
-    # ─────────────────────────────────────────────
+
 
     def get_recent(self, n: int = 10) -> list[dict[str, Any]]:
         """
@@ -298,9 +290,7 @@ class Logbook:
             },
         }
 
-    # ─────────────────────────────────────────────
-    # Internal helpers
-    # ─────────────────────────────────────────────
+
 
     @staticmethod
     def _deserialise_row(row: Any) -> dict[str, Any]:
@@ -329,13 +319,13 @@ if __name__ == "__main__":
 
     lb = Logbook()
 
-    # Test 1: Start session
+    # Start session
     print("\n[1/5] Starting session...")
     sid = lb.start_session()
     print(f"      Session ID: {sid}")
     assert len(sid) == 36  # UUID4 format
 
-    # Test 2: Write a full entry
+    # Write a full entry
     print("\n[2/5] Writing log entry...")
     entry = LogEntry(
         session_id=sid,
@@ -356,7 +346,7 @@ if __name__ == "__main__":
     print(f"      Written row ID: {row_id}")
     assert row_id > 0
 
-    # Test 3: Write a second entry (no triage match)
+    # Write a second entry (no triage match)
     entry2 = LogEntry(
         session_id=sid,
         user_input="How often should I vaccinate my flock?",
@@ -367,7 +357,7 @@ if __name__ == "__main__":
     )
     lb.write_entry(entry2)
 
-    # Test 4: Read recent entries
+    # Read recent entries
     print("\n[3/5] Reading recent entries...")
     recent = lb.get_recent(5)
     print(f"      Retrieved {len(recent)} entries.")
@@ -375,7 +365,7 @@ if __name__ == "__main__":
     print(f"      Latest entry disease: {recent[0].get('disease_hit')}")
     assert isinstance(recent[0]["matched_symptoms"], list)
 
-    # Test 5: Stats
+    # Stats
     print("\n[4/5] Checking stats...")
     stats = lb.get_stats()
     print(f"      Total queries   : {stats['total_queries']}")
@@ -384,7 +374,7 @@ if __name__ == "__main__":
     print(f"      Disease breakdown: {stats['disease_breakdown']}")
     assert stats["total_queries"] >= 2
 
-    # Test 6: End session
+    # End session
     print("\n[5/5] Ending session...")
     lb.end_session(sid)
     summary = lb.get_session_summary(sid)
@@ -392,6 +382,6 @@ if __name__ == "__main__":
     assert summary["ended_at"] is not None
 
     print("\n" + "=" * 55)
-    print("ALL TESTS PASSED — logbook.py is ready.")
+    print("ALL TESTS PASSED, logbook.py is ready.")
     print("=" * 55)
     sys.exit(0)

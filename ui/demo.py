@@ -1,10 +1,4 @@
-"""
-ui/demo.py  (Sprint 7 — new)
 
-Demo Mode for AgroPulse AI.
-Provides professionally written cases that judges can select and run
-without typing. Each case triggers the full AI pipeline.
-"""
 
 from __future__ import annotations
 import streamlit as st

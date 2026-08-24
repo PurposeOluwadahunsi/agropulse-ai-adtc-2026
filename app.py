@@ -1,4 +1,3 @@
-"""app.py (Sprint 11 — Smart Farm Operations Platform)"""
 from __future__ import annotations
 import os, sys, time
 from pathlib import Path

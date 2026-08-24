@@ -1,4 +1,3 @@
-"""ui/analytics.py — Outbreak, timeline, trend, biosecurity display."""
 from __future__ import annotations
 from typing import Any
 import streamlit as st

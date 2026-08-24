@@ -1,10 +1,9 @@
 """
-ui/risk.py  (Sprint 7 — new)
 
-Farm Risk Intelligence.
+Farm Risk Intelligence
 
 Computes a transparent Farm Risk Score from existing pipeline outputs.
-No new AI — only summarises what the triage engine and LLM already produced.
+No new AI, only summarises what the triage engine and LLM already produced.
 
 Score formula (max 100):
     Severity          critical=40  moderate=20  low=10

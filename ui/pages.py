@@ -1,4 +1,3 @@
-"""ui/pages.py (Sprint 10 — updated analytics with charts, empty states, filters)"""
 from __future__ import annotations
 from typing import Any
 import streamlit as st

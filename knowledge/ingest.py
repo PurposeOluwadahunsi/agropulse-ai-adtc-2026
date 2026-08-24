@@ -1,14 +1,4 @@
-"""
-knowledge/ingest.py  (Sprint 4 — updated)
 
-Knowledge base ingestion pipeline for AgroPulse AI.
-
-Sprint 4 changes:
-    - Reads 'references' field (was 'sources' in Sprint 2)
-    - Ingests biosecurity chunks (new in Sprint 4)
-    - Reports chunk counts per section type
-    - Same CLI interface: python knowledge/ingest.py
-"""
 
 from __future__ import annotations
 
@@ -242,7 +232,6 @@ if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO,
         format="%(asctime)s | %(levelname)s | %(message)s")
     print("=" * 60)
-    print("AgroPulse AI — Sprint 4 Knowledge Base Ingestion")
     print("=" * 60)
     stats = run_ingestion()
     print("\n" + "=" * 60)

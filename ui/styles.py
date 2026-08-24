@@ -1,9 +1,4 @@
-"""
-ui/styles.py  (Sprint 6 — redesigned)
 
-Complete CSS redesign for competition-grade UI.
-All design tokens defined here. No styling in other files.
-"""
 
 import streamlit as st
 def apply_sidebar_button_fix() -> None:
@@ -11,7 +6,7 @@ def apply_sidebar_button_fix() -> None:
     import streamlit as st
     st.markdown("""
     <style>
-    /* Hide sidebar nav button text — HTML divs provide the visual */
+    /* Hide sidebar nav button text HTML divs provide the visual */
     [data-testid="stSidebar"] .stButton > button {
         background: transparent !important;
         border: none !important;

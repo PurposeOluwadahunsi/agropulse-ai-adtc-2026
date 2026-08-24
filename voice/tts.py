@@ -1,11 +1,4 @@
-"""
-voice/tts.py
 
-Offline Text-to-Speech using pyttsx3.
-Uses Windows SAPI voices — no internet, no external API.
-
-Install: pip install pyttsx3
-"""
 
 from __future__ import annotations
 

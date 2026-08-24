@@ -1,5 +1,4 @@
 """
-ui/state.py
 
 Centralised session state for AgroPulse AI.
 
@@ -15,9 +14,7 @@ from typing import Any
 import streamlit as st
 
 
-# ─────────────────────────────────────────────
 # Keys
-# ─────────────────────────────────────────────
 
 SESSION_ID       = "session_id"
 LAST_RESULT      = "last_result"       # dict | None
@@ -48,9 +45,7 @@ def init_state() -> None:
             st.session_state[key] = value
 
 
-# ─────────────────────────────────────────────
 # Typed accessors
-# ─────────────────────────────────────────────
 
 def get_session_id() -> str | None:
     return st.session_state.get(SESSION_ID)

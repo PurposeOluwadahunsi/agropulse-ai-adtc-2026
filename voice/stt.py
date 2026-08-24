@@ -1,17 +1,3 @@
-"""
-voice/stt.py
-
-Offline Speech-to-Text using local OpenAI Whisper.
-
-Features
---------
-- Automatic microphone detection
-- Cross-platform (Windows/Linux/macOS)
-- No hardcoded microphone IDs
-- Uses each microphone's native sample rate
-- Compatible with Windows WDM-KS
-- Offline Whisper transcription
-"""
 
 from __future__ import annotations
 

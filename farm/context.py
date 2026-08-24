@@ -1,4 +1,3 @@
-"""farm/context.py — Builds AI context from farm management data."""
 from __future__ import annotations
 import farm.db as db
 
@@ -16,19 +15,19 @@ def get_farm_context() -> str:
     if week_m > 0:
         lines.append(f"MORTALITY: {today_m} deaths today, {week_m} this week (rate {db.mort_rate()}%).")
         if today_m >= 10:
-            lines.append("WARNING: Elevated mortality today — factor this into your assessment.")
+            lines.append("WARNING: Elevated mortality today, factor this into your assessment.")
 
     low_feed = db.feed_low_stock()
     if low_feed:
-        lines.append(f"FEED ALERT: Low stock — {', '.join(f['name'] for f in low_feed)}.")
+        lines.append(f"FEED ALERT: Low stock, {', '.join(f['name'] for f in low_feed)}.")
 
     overdue = db.vacc_overdue()
     if overdue:
-        lines.append(f"VACCINATION OVERDUE: {', '.join(v['vaccine'] for v in overdue)} — remind the farmer.")
+        lines.append(f"VACCINATION OVERDUE: {', '.join(v['vaccine'] for v in overdue)}, remind the farmer.")
 
     today_e = db.egg_today(); weekly_avg = db.egg_weekly_avg()
     if today_e > 0 and weekly_avg > 0 and today_e < weekly_avg * 0.7:
-        lines.append(f"EGG PRODUCTION DROP: Today {today_e} vs weekly avg {weekly_avg} — possible disease impact.")
+        lines.append(f"EGG PRODUCTION DROP: Today {today_e} vs weekly avg {weekly_avg}, possible disease impact.")
 
     med_alerts = db.med_alerts()
     if med_alerts["expired"]:
@@ -37,4 +36,4 @@ def get_farm_context() -> str:
     if not lines:
         return ""
 
-    return "\nFARM MANAGEMENT CONTEXT (use only if relevant — do not invent data):\n" + "\n".join(lines) + "\n"
+    return "\nFARM MANAGEMENT CONTEXT (use only if relevant, do not invent data):\n" + "\n".join(lines) + "\n"

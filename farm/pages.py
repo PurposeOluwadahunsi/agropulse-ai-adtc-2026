@@ -1,8 +1,4 @@
-"""
-farm/pages.py — Sprint 9 farm management UI pages.
-All farm module render functions live here.
-Imports farm/db.py for data. No business logic in UI.
-"""
+
 from __future__ import annotations
 import streamlit as st
 from datetime import date

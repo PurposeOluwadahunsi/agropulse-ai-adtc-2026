@@ -1,7 +1,4 @@
-"""farm/sample_data.py — One-click sample farm data for demo readiness.
-Populates realistic records so judges see a fully working platform instantly.
-Only runs when explicitly triggered — never automatic.
-"""
+
 from __future__ import annotations
 from datetime import date, timedelta
 import farm.db as db

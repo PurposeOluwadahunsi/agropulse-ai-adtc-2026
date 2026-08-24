@@ -1,4 +1,3 @@
-"""farm/performance.py — Farm Performance Score (0-100) from existing data."""
 from __future__ import annotations
 from dataclasses import dataclass, field
 import farm.db as db

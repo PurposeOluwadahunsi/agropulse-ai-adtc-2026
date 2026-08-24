@@ -1,6 +1,4 @@
-"""ui/navigation.py — Sidebar nav: styled real buttons in collapsible groups.
-No hidden/invisible elements — every button is real, visible, and clickable.
-"""
+
 from __future__ import annotations
 import streamlit as st
 from ui.state import get_stats
